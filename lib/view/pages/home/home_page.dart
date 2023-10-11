@@ -98,7 +98,7 @@ class HomePage extends GetView<AuthController> {
                 urlImage: blueBook.images.first,
                 onTap: () {
                   Get.to(() => ViewScreen(blueBook: blueBook));
-                  // Get.to(() => CurvedBar());
+                  
                 },
                 onLongPressed: () {
                   // Checking if the currentUser own the article
@@ -110,7 +110,7 @@ class HomePage extends GetView<AuthController> {
                       Get.back();
                       toast(' Article deleted');
                       await AuthController.instance.deletePost(blueBook.id);
-                    });
+                    },);
                   }
                 },
               );

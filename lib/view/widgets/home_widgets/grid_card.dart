@@ -2,6 +2,8 @@ import 'package:blue_book/view/utils/constants.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../../../shimmers/home_skeleton.dart';
+
 class GridCard extends StatelessWidget {
   const GridCard({
     super.key,
@@ -29,12 +31,8 @@ class GridCard extends StatelessWidget {
         child: CachedNetworkImage(
           imageUrl: urlImage,
           placeholder: (context, url) {
-            return Container(
+            return HomeSkeleton(
               height: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(10),
-              ),
             );
           },
           errorWidget: (context, url, error) {

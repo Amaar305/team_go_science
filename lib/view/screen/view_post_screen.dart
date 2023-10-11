@@ -97,7 +97,7 @@ class _ViewScreenState extends State<ViewScreen> {
                     _builtViewAndFav(context),
                     _builtPostInfo(context),
                     CustomDivider(),
-                    if (currentUser == widget.blueBook.userId)
+                    if (currentUser != widget.blueBook.userId)
                       _builtPostAction(context),
                     const SizedBox(height: 20),
                     CustomTitle(title: "Name"),

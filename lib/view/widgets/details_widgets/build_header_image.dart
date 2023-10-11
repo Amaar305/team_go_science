@@ -1,3 +1,4 @@
+import 'package:blue_book/shimmers/home_skeleton.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,7 @@ Widget buildImage(String urlImage, int index) => AspectRatio(
         child: CachedNetworkImage(
           imageUrl: urlImage,
           placeholder: (context, url) {
-            return Container(color: Colors.grey);
+            return HomeSkeleton();
           },
           errorWidget: (context, url, error) {
             return const Center(

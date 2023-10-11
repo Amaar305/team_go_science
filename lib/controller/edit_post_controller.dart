@@ -50,7 +50,7 @@ class EditPostController extends GetxController {
   }
 
   void tryUpdate(String postDoc, String ownerId, content) async {
-    if (CurrentLoggeedInUser.currentUserId!.uid == ownerId) {
+    if (CurrentLoggeedInUser.currentUserId!.uid != ownerId) {
       try {
         Map<String, dynamic> updatedBook = {
           "name": titleEditingController!.text.trim(),
