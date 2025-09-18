@@ -50,7 +50,7 @@ class ProfileCard extends StatelessWidget {
             Text(
               text,
               style: descriptionTextStyle.copyWith(fontSize: 20),
-              maxLines: 2,
+              maxLines: 4,
               overflow: TextOverflow.ellipsis,
             ),
           ],

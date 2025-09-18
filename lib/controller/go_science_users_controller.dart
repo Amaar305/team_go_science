@@ -22,6 +22,7 @@ class GoScienceUsersController extends GetxController {
 // Stream all users and fetch them all, excluding "amarrameen2003@gmail.com" user this email
   Stream<List<GoScienceUser>> _streamAllGoScienceUsers() {
     return _collectionReference
+        // .orderBy("createdAt", descending: true)
         .where("email", isNotEqualTo: "amarrameen2003@gmail.com")
         .snapshots()
         .map((query) => query.docs

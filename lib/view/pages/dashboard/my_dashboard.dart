@@ -32,7 +32,9 @@ class _MyDashBoardState extends State<MyDashBoard> {
             ],
           ),
         ),
-        bottomNavigationBar: CustomAnimatedBottomBar(
+        bottomNavigationBar: 
+        
+        CustomAnimatedBottomBar(
           containerHeight: 70,
           backgroundColor: kSecondary,
           selectedIndex: controller.tabIndex,
@@ -73,6 +75,7 @@ class _MyDashBoardState extends State<MyDashBoard> {
             ),
           ],
         ),
+     
       );
     });
   }

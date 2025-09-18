@@ -282,7 +282,10 @@ class AuthController extends GetxController {
   }
 
   Stream<List<GoScience>> getAllGoScience() {
-    return _collectionReference.snapshots().map(
+    return _collectionReference
+        .orderBy("createdAt", descending: true)
+        .snapshots()
+        .map(
           (query) =>
               query.docs.map((item) => GoScience.fromDocument(item)).toList(),
         );

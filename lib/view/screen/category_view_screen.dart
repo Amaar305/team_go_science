@@ -19,7 +19,7 @@ class CategoryView extends StatelessWidget {
       appBar: AppBar(title: Text(category)),
       body: Obx(() {
         final goSciences = controller.goScienceLists
-            .where((cat) => cat.category == category)
+            .where((cat) => cat.category == category && cat.isPublished == true)
             .toList();
 
         return GridView.builder(

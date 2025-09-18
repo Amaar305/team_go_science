@@ -17,12 +17,64 @@ class GoScienceUsersScreen extends GetView<GoScienceUsersController> {
       appBar: AppBar(
         title: Text("Go Science Users"),
         centerTitle: true,
+          actions: [
+          DropdownButton(
+            icon: Icon(
+              Icons.sort,
+              color: Colors.white,
+            ),
+            underline: Container(),
+            items: [
+              DropdownMenuItem(
+                value: 'alpha',
+                child: Container(
+                  child: const Row(
+                    children: [
+                      Icon(Icons.sort_by_alpha_outlined),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text('Name')
+                    ],
+                  ),
+                ),
+              ),
+              DropdownMenuItem(
+                value: 'date',
+                child: Container(
+                  child: const Row(
+                    children: [
+                      Icon(Icons.date_range),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text('Date added')
+                    ],
+                  ),
+                ),
+              ),
+            ],
+            onChanged: (value) {
+              if (value == "date") {
+                controller.goScienceUser.sort(
+                  (a, b) => b.createdAt.compareTo(a.createdAt),
+                );
+              } else if (value == "alpha") {
+                controller.goScienceUser.sort(
+                  (a, b) => a.name.compareTo(b.name),
+                );
+              }
+            },
+          ),
+        ],
+     
       ),
       body: Obx(
         () => ListView.builder(
           physics: BouncingScrollPhysics(),
           itemCount: controller.goScienceUser.length,
           itemBuilder: (context, index) {
+           
             GoScienceUser goScienceUser = controller.goScienceUser[index];
             return UserTile(
               goScienceUser: goScienceUser,

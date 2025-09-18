@@ -73,6 +73,7 @@ class HomePage extends GetView<AuthController> {
             },
           ),
         ],
+     
       ),
       body: Obx(
         () {
@@ -98,7 +99,6 @@ class HomePage extends GetView<AuthController> {
                 urlImage: blueBook.images.first,
                 onTap: () {
                   Get.to(() => ViewScreen(blueBook: blueBook));
-                  
                 },
                 onLongPressed: () {
                   // Checking if the currentUser own the article
@@ -106,11 +106,13 @@ class HomePage extends GetView<AuthController> {
                     log(blueBook.id);
 
                     // Dleting the article
-                    CustomFullScreenDialog.showAlertDialog(() async {
-                      Get.back();
-                      toast(' Article deleted');
-                      await AuthController.instance.deletePost(blueBook.id);
-                    },);
+                    CustomFullScreenDialog.showAlertDialog(
+                      () async {
+                        Get.back();
+                        toast(' Article deleted');
+                        await AuthController.instance.deletePost(blueBook.id);
+                      },
+                    );
                   }
                 },
               );
